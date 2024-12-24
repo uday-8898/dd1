@@ -45,6 +45,13 @@ import string
 from model import  extract_content_based_on_query,process_file,process_and_upload_embeddings
 from middleware import expiry_check
 
+app = FastAPI()
+favicon_path = 'favicon.ico'
+#update
+@app.get('/favicon.ico', include_in_schema=False)
+async def favicon():
+    return FileResponse(favicon_path)
+
  
 # Azure OpenAI Configuration (directly defined in code)
 AZURE_OPENAI_API_KEY = "24d6f09f8b0f44b1a1b90da2488fb417"
